@@ -1,4 +1,4 @@
 # LineAPI
 PHP-API for interacting with Line-Lan services
 
-Documentation: https://api.line-lan.net
+Documentation: https://api.line-lan.net/docs/
