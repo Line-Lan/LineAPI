@@ -1,0 +1,6 @@
+RewriteEngine on 
+Options +FollowSymlinks 
+RewriteBase /api/
+RewriteRule ^(.*)/$ index.php?query=$1
+RewriteCond %{REQUEST_URI} !(/$|\.) 
+RewriteRule (.*) %{REQUEST_URI}/ [R=301,L]
