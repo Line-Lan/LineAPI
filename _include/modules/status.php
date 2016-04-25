@@ -13,7 +13,7 @@ $adresses = array(
 
 // Check the Status of a Webserver
 function checkStatus($host, $port) {
-   if ($socket = @ fsockopen($host, $port, $errno, $errstr, 2)) {
+   if ($socket = @fsockopen($host, $port, $errno, $errstr, 2)) {
       echo 'Online';
       fclose($socket);
    } else {
