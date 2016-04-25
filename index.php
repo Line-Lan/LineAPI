@@ -20,6 +20,9 @@ switch ($q[0]) {
 	case "tournaments":
 		include '_include/modules/tournaments.php';	
 		break;
+	case "status":
+		include '_include/modules/status.php';	
+		break;
 	default:
 		giveError();
 }
