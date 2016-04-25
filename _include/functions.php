@@ -28,5 +28,5 @@ function rdirDoc() {
 }
 
 function giveError() {
-	die("ERROR: The requested API-Endpoint\" ".$_GET["query"]."\" was not found!");
+	die("ERROR: The requested API-Endpoint\" api\\".$_GET["query"]."\" was not found!");
 }
