@@ -13,6 +13,7 @@ switch ($q[1]) {
       //	/api/users/x
       switch ($q[2]) {
          case NULL:
+            $q[1] = $sql->real_escape_string($q[1]);
             $result = $sql->query('Select username from users where userid=' . $q[1], MYSQLI_USE_RESULT);
             while ($row = $result->fetch_assoc()) {
                echo $row['username'];
@@ -20,6 +21,7 @@ switch ($q[1]) {
             break 2;
          case "rig":
             //	/api/users/x/rig/
+            $q[1] = $sql->real_escape_string($q[1]);
             $result = $sql->query('Select comp_proc, comp_proc_spd, comp_proc_type, comp_mem, comp_mem_type, comp_hdstorage, comp_gfx_gpu, comp_gfx_type from users where userid=' . $q[1], MYSQLI_USE_RESULT);
             switch ($q[3]) {
                case NULL:
@@ -65,6 +67,7 @@ switch ($q[1]) {
             break;
          case "name":
             //	/api/users/x/name/
+            $q[1] = $sql->real_escape_string($q[1]);
             $result = $sql->query('Select first_name, last_name from users where userid=' . $q[1], MYSQLI_USE_RESULT);
             while ($row = $result->fetch_assoc()) {
                echo $row['first_name'] . " ";
@@ -74,6 +77,7 @@ switch ($q[1]) {
 
          case "benchmarks":
             // /api/users/x/benchmarks
+            $q[1] = $sql->real_escape_string($q[1]);
             $result = $sql->query('SELECT userid, benchid, benchmarks.id, name, value FROM benchmarks, users_benchmarks WHERE userid=' . $q[1] . ' and  benchid = benchmarks.id', MYSQLI_USE_RESULT);
             switch ($q[3]) {
                case NULL:
@@ -94,12 +98,14 @@ switch ($q[1]) {
             }
             break;
          case "quote":
+            $q[1] = $sql->real_escape_string($q[1]);
             $result = $sql->query('Select quote from users where userid=' . $q[1], MYSQLI_USE_RESULT);
             while ($row = $result->fetch_assoc()) {
                echo $row['quote'];
             }
             break;
          case "clan":
+            $q[1] = $sql->real_escape_string($q[1]);
             $result = $sql->query('Select gaming_group from users where userid=' . $q[1], MYSQLI_USE_RESULT);
             while ($row = $result->fetch_assoc()) {
                echo $row['gaming_group'];
