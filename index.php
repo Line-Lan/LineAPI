@@ -1,6 +1,9 @@
 <?php
-
+//Includes some useful functions
 require_once '_include/functions.php';
+//Always use HTTPS, comment to allow HTTP traffic
+requireHTTPS();
+
 $q = explode("/", $_GET["query"], 10);
 switch ($q[0]) {
    case NULL:
