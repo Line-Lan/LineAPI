@@ -1,7 +1,15 @@
 <?php
 
 function requireHTTPS() {
-   if ($_SERVER['HTTP_X_FORWARDED_PROTO'] != "https") {
+   //Always use a secure connection with HTTPS
+
+   /* //Fallback to use with CloudFlare Flexible SSL
+     if($_SERVER['HTTP_X_FORWARDED_PROTO'] != "https") {
+     header("Location: https://" . $_SERVER["HTTP_HOST"] . $_SERVER["REQUEST_URI"]);
+     exit();
+     }
+    */
+   if ($_SERVER['HTTPS'] != "on") {
       header("Location: https://" . $_SERVER["HTTP_HOST"] . $_SERVER["REQUEST_URI"]);
       exit();
    }
