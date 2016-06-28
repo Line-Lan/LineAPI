@@ -4,7 +4,7 @@
 $adresses = array(
     "website" => "Line-Lan.net",
     "database" => "localhost",
-    "mail" => "smtppro.zoho.com",
+    "mail" => "imappro.zoho.com",
     "api" => "api.line-lan.net",
     "teamspeak" => "5.230.10.109",
     "dns" => "kevin.ns.cloudflare.com",
@@ -47,7 +47,7 @@ switch ($q[1]) {
       checkStatus($adresses[database], 3306);
       echo('<br />');
       echo('Mail: ');
-      checkStatus($adresses[mail], 110);
+      checkStatus($adresses[mail], 993);
       echo('<br />');
       echo('API: ');
       checkStatus($adresses[api], 80);
@@ -69,7 +69,7 @@ switch ($q[1]) {
       checkStatus($adresses[database], 3306);
       break;
    case mail:
-      checkStatus($adresses[mail], 110);
+      checkStatus($adresses[mail], 993);
       break;
    case api:
       checkStatus($adresses[api], 80);
