@@ -37,5 +37,11 @@ function rdirDoc() {
 
 function giveError() {
    header("HTTP/1.1 404 Not Found");
-   die("ERROR 404: The requested API-Endpoint \"api/" . $_GET["query"] . "\" was not found!");
+   die("HTTP/1.1 404: The requested API-Endpoint \"api/" . $_GET["query"] . "\" was not found!");
+}
+
+function giveRequestError() {
+   header("HTTP/1.1 400 Bad Request");
+   die("HTTP/1.1 400: The request to \"api/" . $_GET["query"] . "\" could not be completed!");
+   
 }

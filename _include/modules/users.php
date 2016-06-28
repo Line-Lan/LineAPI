@@ -10,6 +10,10 @@ switch ($q[1]) {
       }
       break;
    default:
+      // Check if the given userid is integer
+      if (!is_numeric($q[1])) {
+         giveRequestError();
+      }
       //	/api/users/x
       switch ($q[2]) {
          case NULL:

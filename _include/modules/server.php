@@ -11,6 +11,9 @@ switch ($q[1]) {
       }
       break;
    case raw:
+      if (!is_numeric($q[1])) {
+         giveRequestError();
+      }
       $q[1] = $sql->real_escape_string($q[1]);
       $result = $sql->query('Select ipaddress, games.name from servers, games where tourneyid = 0 and games.gameid = servers.gameid', MYSQLI_USE_RESULT);
       while ($row = $result->fetch_assoc()) {
@@ -19,6 +22,9 @@ switch ($q[1]) {
       }
       break;
    default:
+      if (!is_numeric($q[1])) {
+         giveRequestError();
+      }
       $q[1] = $sql->real_escape_string($q[1]);
       $result = $sql->query('Select ipaddress, games.name from servers, games where tourneyid = 0 and games.gameid = servers.gameid and servers.id=' . $q[1], MYSQLI_USE_RESULT);
       while ($row = $result->fetch_assoc()) {
