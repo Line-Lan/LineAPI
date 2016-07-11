@@ -49,7 +49,7 @@ function pingStatus($domain) {
 
 switch ($q[1]) {
    case NULL:
-      //	/api/status/
+      //	api/status
       echo('Website: ');
       checkStatus($adresses[website], $ports["https"]);
       echo('<br />');
@@ -72,6 +72,7 @@ switch ($q[1]) {
       echo (pingStatus($adresses[pingTarget]) . ' ms');
       echo('<br />');
       break;
+   // api/status/x
    case website:
       checkStatus($adresses[website], $ports["https"]);
       break;
@@ -94,7 +95,6 @@ switch ($q[1]) {
       echo (pingStatus($adresses[pingTarget]) . ' ms');
       break;
    default:
-      //	/api/status/x
       giveError();
       break;
 }

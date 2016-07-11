@@ -1,7 +1,7 @@
 <?php
 
 openSql();
-// api/tournaments/
+// api/tournaments
 switch ($q[1]) {
    case NULL:
       $result = $sql->query('Select name From tournaments', MYSQLI_USE_RESULT);
@@ -12,6 +12,7 @@ switch ($q[1]) {
    default:
       switch ($q[2]) {
          case NULL:
+            // api/tournaments/x
             if (!is_numeric($q[1])) {
                giveRequestError();
             }
@@ -22,6 +23,7 @@ switch ($q[1]) {
             }
             break;
          case "type":
+            // api/tournaments/type
             if (!is_numeric($q[1])) {
                giveRequestError();
             }
@@ -48,6 +50,7 @@ switch ($q[1]) {
             }
             break;
          case "game":
+            // api/tournaments/game
             if (!is_numeric($q[1])) {
                giveRequestError();
             }
@@ -58,6 +61,7 @@ switch ($q[1]) {
             }
             break;
          case "teamcount":
+            // api/tournaments/teamcount
             if (!is_numeric($q[1])) {
                giveRequestError();
             }
@@ -68,6 +72,7 @@ switch ($q[1]) {
             }
             break;
          case "teamsize":
+            // api/tournaments/teamsize
             if (!is_numeric($q[1])) {
                giveRequestError();
             }
@@ -78,6 +83,7 @@ switch ($q[1]) {
             }
             break;
          case "notes":
+            // api/tournaments/notes
             if (!is_numeric($q[1])) {
                giveRequestError();
             }
@@ -88,6 +94,7 @@ switch ($q[1]) {
             }
             break;
          case "settings":
+            // api/tournaments/settings
             if (!is_numeric($q[1])) {
                giveRequestError();
             }
@@ -100,6 +107,4 @@ switch ($q[1]) {
          default:
             giveError();
       }
-}	
-
-//		giveError();
+}

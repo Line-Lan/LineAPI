@@ -1,7 +1,7 @@
 <?php
 
 openSql();
-// /api/server/
+// api/server
 switch ($q[1]) {
    case NULL:
       $result = $sql->query('Select ipaddress, games.name from servers, games where tourneyid = 0 and games.gameid = servers.gameid', MYSQLI_USE_RESULT);
@@ -22,6 +22,7 @@ switch ($q[1]) {
       }
       break;
    default:
+      // api/server/x
       if (!is_numeric($q[1])) {
          giveRequestError();
       }

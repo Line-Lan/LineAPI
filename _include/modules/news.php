@@ -1,7 +1,7 @@
 <?php
 
 openSql();
-// /api/news/
+// api/news
 switch ($q[1]) {
    case NULL:
       $result = $sql->query('Select news_article, headline from news where hide_item = 0', MYSQLI_USE_RESULT);
@@ -11,7 +11,7 @@ switch ($q[1]) {
          echo ('<br/><br/>');
       }
       break;
-   // /api/news/x/
+   // api/news/x
    default:
       if (!is_numeric($q[1])) {
          giveRequestError();

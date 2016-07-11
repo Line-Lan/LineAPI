@@ -3,18 +3,17 @@
 openSql();
 switch ($q[1]) {
    case NULL:
-      //	/api/users/
+      //	api/users
       $result = $sql->query('Select username from users', MYSQLI_USE_RESULT);
       while ($row = $result->fetch_assoc()) {
          echo $row['username'] . ' <br/>';
       }
       break;
    default:
-      // Check if the given userid is integer
       if (!is_numeric($q[1])) {
          giveRequestError();
       }
-      //	/api/users/x
+      //	api/users/x
       switch ($q[2]) {
          case NULL:
             $q[1] = $sql->real_escape_string($q[1]);
@@ -24,7 +23,7 @@ switch ($q[1]) {
             }
             break 2;
          case "rig":
-            //	/api/users/x/rig/
+            //	api/users/x/rig
             $q[1] = $sql->real_escape_string($q[1]);
             $result = $sql->query('Select comp_proc, comp_proc_spd, comp_proc_type, comp_mem, comp_mem_type, comp_hdstorage, comp_gfx_gpu, comp_gfx_type from users where userid=' . $q[1], MYSQLI_USE_RESULT);
             switch ($q[3]) {
@@ -70,7 +69,7 @@ switch ($q[1]) {
             }
             break;
          case "name":
-            //	/api/users/x/name/
+            //	api/users/x/name
             $q[1] = $sql->real_escape_string($q[1]);
             $result = $sql->query('Select first_name, last_name from users where userid=' . $q[1], MYSQLI_USE_RESULT);
             while ($row = $result->fetch_assoc()) {
@@ -80,7 +79,7 @@ switch ($q[1]) {
             break;
 
          case "benchmarks":
-            // /api/users/x/benchmarks
+            // api/users/x/benchmarks
             $q[1] = $sql->real_escape_string($q[1]);
             $result = $sql->query('SELECT userid, benchid, benchmarks.id, name, value FROM benchmarks, users_benchmarks WHERE userid=' . $q[1] . ' and  benchid = benchmarks.id', MYSQLI_USE_RESULT);
             switch ($q[3]) {
@@ -91,7 +90,7 @@ switch ($q[1]) {
                   }
                   break;
                case "raw":
-                  // /api/users/x/benchmarks/raw
+                  // api/users/x/benchmarks/raw
                   while ($row = $result->fetch_assoc()) {
                      echo $row['name'] . ",";
                      echo $row['value'] . ",";

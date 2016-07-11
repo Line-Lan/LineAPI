@@ -3,14 +3,14 @@
 openSql();
 switch ($q[1]) {
    case NULL:
-      //	/api/games/
+      //	api/games
       $result = $sql->query('Select name from games', MYSQLI_USE_RESULT);
       while ($row = $result->fetch_assoc()) {
          echo $row['name'] . ' <br/>';
       }
       break;
    default:
-      //	/api/games/x/
+      //	api/games/x
       if (!is_numeric($q[1])) {
          giveRequestError();
       }
