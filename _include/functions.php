@@ -20,7 +20,7 @@ function requireHTTPS() {
 
 function openSql() {
    // creating the object $sql for interacting with the database
-   require_once 'config.php';
+   global $db_server, $db_user, $db_password, $db_database;
    global $sql;
    $sql = new mysqli($db_server, $db_user, $db_password, $db_database);
 }

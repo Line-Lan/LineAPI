@@ -1,9 +1,11 @@
 <?php
+require_once 'config.inc.php';
+
 // Includes some useful functions
 require_once '_include/functions.php';
 
 // Always use HTTPS, comment out to allow HTTP traffic
-requireHTTPS();
+//requireHTTPS();
 
 // Splitting the request into parts of $q (query array)
 $q = explode("/", $_GET["query"], 10);
